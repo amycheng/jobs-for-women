@@ -7,13 +7,13 @@ TODOS:
 */
 
   var getRandom = (arr)=>{
-    let len = arr.length-1;
-    let num = Math.floor(Math.random() * (len + 1)) + 0;
+    var len = arr.length-1;
+    var num = Math.floor(Math.random() * (len + 1)) + 0;
     return num;
   };
 
   var App = React.createClass({
-    getInitialState: function() {
+    getInitialState: () => {
       return {
         showLoader: true,
         data:[],
@@ -21,7 +21,7 @@ TODOS:
         index: 0
       };
     },
-    clickHandler: function(){
+    clickHandler: ()=>{
       var _data = this.state.data;
       var newCard = getRandom(this.state.data);
 
@@ -32,7 +32,7 @@ TODOS:
 
       window.location="#"+newCard;
     },
-    componentDidMount: function(){
+    componentDidMount: ()=>{
       //window.location.hash
       var _this=this;
       console.log("app component mounting");
@@ -62,7 +62,7 @@ TODOS:
       request.open("GET", url, true);
       request.send();
     },
-    render: function(){
+    render: ()=>{
       return (
         <div>
           <p className="loader" data-show={this.state.showLoader}>Loading</p>
@@ -73,7 +73,7 @@ TODOS:
   });
 
   var Card = React.createClass({
-    render: function(){
+    render: ()=>{
       return (
         <div className="card">
          <h1 className="callout">{this.props.data.job}</h1>
@@ -85,11 +85,11 @@ TODOS:
   });
 
   var Reset = React.createClass({
-    clickHandler: function(){
+    clickHandler: ()=>{
       var ev = new Event('resetCard');
       document.dispatchEvent(ev);
     },
-    render: function(){
+    render: ()=>{
       return (
         <button onClick={this.clickHandler}>Discover another "job"</button>
       );
