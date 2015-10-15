@@ -436,14 +436,52 @@ th {
   padding: 0;
 }
 
-/* line 3, ../sass/styles.scss */
+/* line 5, ../sass/styles.scss */
+body {
+  background: #000;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+/* line 12, ../sass/styles.scss */
+button {
+  background: gray;
+  border: 0;
+  padding: 5px;
+}
+
+/* line 18, ../sass/styles.scss */
+.container {
+  margin-top: 1em;
+  margin: 1em 5%;
+}
+@media (min-width: 801px) {
+  /* line 18, ../sass/styles.scss */
+  .container {
+    margin: 1em auto;
+    max-width: 50em;
+  }
+}
+
+/* line 30, ../sass/styles.scss */
+a {
+  color: #E6E6E6;
+}
+
+/* line 34, ../sass/styles.scss */
 p.loader {
   display: none;
 }
 
-/* line 7, ../sass/styles.scss */
+/* line 38, ../sass/styles.scss */
 p.loader[data-show="true"] {
   display: block;
+}
+
+/* line 42, ../sass/styles.scss */
+.card-image {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

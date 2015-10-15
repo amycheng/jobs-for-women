@@ -66,8 +66,8 @@ TODOS:
       return (
         <div>
           <p className="loader" data-show={this.state.showLoader}>Loading</p>
-          <Card data={this.state.current} />
           <button onClick={this.clickHandler}>Discover another "job"</button>
+          <Card data={this.state.current} />
         </div>
       );
     }
@@ -78,7 +78,7 @@ TODOS:
       return (
         <div className="card">
          <h1>{this.props.data.job}</h1>
-         <img src={this.props.data.image} alt={this.props.data.job}/>
+         <img className = "card-image" src={this.props.data.image} alt={this.props.data.job}/>
          <p><a href={this.props.data.url} target="_blank">View details</a> on the Metropolitan Museum of Art web site.</p>
         </div>
       );
