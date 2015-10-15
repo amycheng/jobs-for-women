@@ -32,6 +32,16 @@ a {
   color: #E6E6E6;
 }
 
+h1 {
+  margin: 0;
+}
+
+.card {
+  h1 {
+    margin-bottom: 1em;
+  }
+}
+
 p.loader{
   display:none;
 }
@@ -44,6 +54,9 @@ p.loader[data-show="true"] {
   max-width: 100%;
 }
 
+#content {
+  margin-right: 1em
+}
 section {
   @media (min-width: $phablet) {
     flex: 1;
@@ -54,4 +67,10 @@ section {
   p {
     line-height: 1.5em;
   }
+}
+
+.callout{
+  padding: 1em 0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }

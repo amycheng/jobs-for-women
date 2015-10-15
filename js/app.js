@@ -31,8 +31,6 @@ TODOS:
       });
 
       window.location="#"+newCard;
-      var event = new Event('ping');
-      document.dispatchEvent(event);
     },
     componentDidMount: function(){
       //window.location.hash
@@ -58,7 +56,7 @@ TODOS:
             current:_data.data[rando],
             index: rando
           });
-          document.addEventListener('ping',function(){alert("ping")},false);
+          document.addEventListener('resetCard',_this.clickHandler,false);
         }
       }
       request.open("GET", url, true);
@@ -68,7 +66,6 @@ TODOS:
       return (
         <div>
           <p className="loader" data-show={this.state.showLoader}>Loading</p>
-          <button onClick={this.clickHandler}>Discover another "job"</button>
           <Card klick={this.clickHandler} data={this.state.current} />
         </div>
       );
@@ -79,7 +76,7 @@ TODOS:
     render: function(){
       return (
         <div className="card">
-         <h1>{this.props.data.job}</h1>
+         <h1 className="callout">{this.props.data.job}</h1>
          <img onClick={this.props.klick} className = "card-image" src={this.props.data.image} alt={this.props.data.job}/>
          <p><a href={this.props.data.url} target="_blank">View details</a> on the Metropolitan Museum of Art web site.</p>
         </div>
@@ -87,7 +84,24 @@ TODOS:
     }
   });
 
+  var Reset = React.createClass({
+    clickHandler: function(){
+      var ev = new Event('resetCard');
+      document.dispatchEvent(ev);
+    },
+    render: function(){
+      return (
+        <button onClick={this.clickHandler}>Discover another "job"</button>
+      );
+    }
+  })
+
   ReactDOM.render(
     <App />,
     document.getElementById('content')
+  );
+
+  ReactDOM.render(
+    <Reset />,
+    document.getElementById('reset')
   );

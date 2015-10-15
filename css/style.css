@@ -476,22 +476,37 @@ a {
 }
 
 /* line 35, ../sass/styles.scss */
+h1 {
+  margin: 0;
+}
+
+/* line 40, ../sass/styles.scss */
+.card h1 {
+  margin-bottom: 1em;
+}
+
+/* line 45, ../sass/styles.scss */
 p.loader {
   display: none;
 }
 
-/* line 39, ../sass/styles.scss */
+/* line 49, ../sass/styles.scss */
 p.loader[data-show="true"] {
   display: block;
 }
 
-/* line 43, ../sass/styles.scss */
+/* line 53, ../sass/styles.scss */
 .card-image {
   max-width: 100%;
 }
 
+/* line 57, ../sass/styles.scss */
+#content {
+  margin-right: 1em;
+}
+
 @media (min-width: 50em) {
-  /* line 47, ../sass/styles.scss */
+  /* line 60, ../sass/styles.scss */
   section {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -500,7 +515,14 @@ p.loader[data-show="true"] {
   }
 }
 
-/* line 54, ../sass/styles.scss */
+/* line 67, ../sass/styles.scss */
 .about p {
   line-height: 1.5em;
+}
+
+/* line 72, ../sass/styles.scss */
+.callout {
+  padding: 1em 0;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
