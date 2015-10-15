@@ -12,6 +12,12 @@ module.exports = function(grunt) {
     dev_css = "sass";
 
     grunt.initConfig({
+         autoprefixer: {
+          css: {
+            src: 'css/style.css',
+            dest: 'css/style.css'
+          }
+        },
         // concat: {
         //     javascript: {
         //         src:[],
@@ -36,7 +42,7 @@ module.exports = function(grunt) {
             // },
             css: {
                 files: [dev_css+'/*'],
-                tasks: ['sass:dev']
+                tasks: ['sass:dev','autoprefixer']
             }
         },
         sass: { //compile CSS from SASS
@@ -61,5 +67,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.registerTask('default', ['sass','connect','watch']);
+    grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.registerTask('default', ['sass','autoprefixer','connect','watch']);
 };

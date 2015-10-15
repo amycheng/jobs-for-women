@@ -1,6 +1,7 @@
 @import '_normalize';
 
-$breakpoint: 801px;
+$phablet: 50em;
+$desktop: 64em;
 
 body {
   background: #000;
@@ -18,12 +19,12 @@ button {
 .container {
   margin-top: 1em;
   margin: 1em 5%;
-  @media (min-width: $breakpoint) {
+  @media (min-width: $phablet) {
     margin: 1em auto;
     max-width: 50em;
   }
-  @media (min-width: 64em) {
-
+  @media (min-width: $phablet) {
+    display: flex
   }
 }
 
@@ -41,4 +42,16 @@ p.loader[data-show="true"] {
 
 .card-image {
   max-width: 100%;
+}
+
+section {
+  @media (min-width: $phablet) {
+    flex: 1;
+  }
+}
+
+.about {
+  p {
+    line-height: 1.5em;
+  }
 }
