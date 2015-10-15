@@ -1,0 +1,9 @@
+@import '_normalize';
+
+p.loader{
+  display:none;
+}
+
+p.loader[data-show="true"] {
+  display: block;
+}
