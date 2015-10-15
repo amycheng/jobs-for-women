@@ -2,7 +2,8 @@
 console.log("loading app");
 /*
 TODOS:
-- use arrow syntax for lulz
+  - use arrow syntax for lulz
+  - add share to twitter button
 */
 
   var getRandom = (arr)=>{
@@ -30,10 +31,10 @@ TODOS:
       });
 
       window.location="#"+newCard;
-
+      var event = new Event('ping');
+      document.dispatchEvent(event);
     },
     componentDidMount: function(){
-      console.log(window.location.hash);
       //window.location.hash
       var _this=this;
       console.log("app component mounting");
@@ -57,6 +58,7 @@ TODOS:
             current:_data.data[rando],
             index: rando
           });
+          document.addEventListener('ping',function(){alert("ping")},false);
         }
       }
       request.open("GET", url, true);
@@ -67,7 +69,7 @@ TODOS:
         <div>
           <p className="loader" data-show={this.state.showLoader}>Loading</p>
           <button onClick={this.clickHandler}>Discover another "job"</button>
-          <Card data={this.state.current} />
+          <Card klick={this.clickHandler} data={this.state.current} />
         </div>
       );
     }
@@ -78,7 +80,7 @@ TODOS:
       return (
         <div className="card">
          <h1>{this.props.data.job}</h1>
-         <img className = "card-image" src={this.props.data.image} alt={this.props.data.job}/>
+         <img onClick={this.props.klick} className = "card-image" src={this.props.data.image} alt={this.props.data.job}/>
          <p><a href={this.props.data.url} target="_blank">View details</a> on the Metropolitan Museum of Art web site.</p>
         </div>
       );
