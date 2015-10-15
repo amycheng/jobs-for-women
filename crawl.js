@@ -17,7 +17,7 @@ var fs = require('fs'); //used for writing the json file
 var xray = Xray(); //intialize the library
 
 var re = new RegExp("^(.+?),"); //regular expression we're using to grab the job title from the image title
-var url = "http://www.metmuseum.org/collection/the-collection-online/search?ft=%22Occupations+for+Women%22&amp;noqs=true";
+var url = "http://www.metmuseum.org/collection/the-collection-online/search?ft=%22Occupations+for+Women%22";
 
 var rawData;
 var data;
