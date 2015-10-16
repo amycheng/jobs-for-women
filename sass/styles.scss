@@ -18,7 +18,7 @@ button {
 
 .container {
   margin-top: 1em;
-  margin: 1em 5%;
+  margin: 1em 10%;
   @media (min-width: $phablet) {
     margin: 1em auto;
     max-width: 50em;
@@ -36,10 +36,15 @@ h1 {
   margin: 0;
 }
 
+h1,h2 {
+  letter-spacing: 1px;
+}
+
 .card {
   h1 {
     margin-bottom: 1em;
   }
+
 }
 
 p.loader{
@@ -55,7 +60,12 @@ p.loader[data-show="true"] {
 }
 
 #content {
-  margin-right: 1em
+  margin-bottom: 2em;
+  max-width: 21.25em;
+  @media (min-width: $phablet) {
+    margin-right: 3em;
+    flex: 1;
+  }
 }
 section {
   @media (min-width: $phablet) {

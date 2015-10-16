@@ -451,7 +451,7 @@ button {
 /* line 19, ../sass/styles.scss */
 .container {
   margin-top: 1em;
-  margin: 1em 5%;
+  margin: 1em 10%;
 }
 @media (min-width: 50em) {
   /* line 19, ../sass/styles.scss */
@@ -480,33 +480,49 @@ h1 {
   margin: 0;
 }
 
-/* line 40, ../sass/styles.scss */
+/* line 39, ../sass/styles.scss */
+h1, h2 {
+  letter-spacing: 1px;
+}
+
+/* line 44, ../sass/styles.scss */
 .card h1 {
   margin-bottom: 1em;
 }
 
-/* line 45, ../sass/styles.scss */
+/* line 50, ../sass/styles.scss */
 p.loader {
   display: none;
 }
 
-/* line 49, ../sass/styles.scss */
+/* line 54, ../sass/styles.scss */
 p.loader[data-show="true"] {
   display: block;
 }
 
-/* line 53, ../sass/styles.scss */
+/* line 58, ../sass/styles.scss */
 .card-image {
   max-width: 100%;
 }
 
-/* line 57, ../sass/styles.scss */
+/* line 62, ../sass/styles.scss */
 #content {
-  margin-right: 1em;
+  margin-bottom: 2em;
+  max-width: 21.25em;
+}
+@media (min-width: 50em) {
+  /* line 62, ../sass/styles.scss */
+  #content {
+    margin-right: 3em;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
 }
 
 @media (min-width: 50em) {
-  /* line 60, ../sass/styles.scss */
+  /* line 70, ../sass/styles.scss */
   section {
     -webkit-box-flex: 1;
     -webkit-flex: 1;
@@ -515,12 +531,12 @@ p.loader[data-show="true"] {
   }
 }
 
-/* line 67, ../sass/styles.scss */
+/* line 77, ../sass/styles.scss */
 .about p {
   line-height: 1.5em;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 82, ../sass/styles.scss */
 .callout {
   padding: 1em 0;
   border-top: 1px solid #fff;
