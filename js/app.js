@@ -1,15 +1,19 @@
 'use strict';
 console.log("loading app");
-/*
-TODOS:
-  - use arrow syntax for lulz
-  - add share to twitter button
-*/
 
   var getRandom = (arr)=>{
     let len = arr.length-1;
     let num = Math.floor(Math.random() * (len + 1)) + 0;
     return num;
+  };
+
+
+  var generateTweet = (title)=>{
+    var baseUrl = "https://twitter.com/intent/tweet?text=";
+    var sharedUrl = "&url="+encodeURIComponent(window.location);
+    var text="A%20job%20for%20women:"+title;
+
+    return baseUrl+text+sharedUrl;
   };
 
   var App = React.createClass({
@@ -25,12 +29,15 @@ TODOS:
       var _data = this.state.data;
       var newCard = getRandom(this.state.data);
 
-      this.setState({
-        current:_data[newCard],
-        index: newCard
-      });
 
       window.location="#"+newCard;
+
+      this.setState({
+        current:_data[newCard],
+        index: newCard,
+        permalink: window.location.href,
+      });
+
     },
     componentDidMount: function(){
       //window.location.hash
@@ -51,14 +58,16 @@ TODOS:
             rando = getRandom(_data.data);
             window.location="#"+rando;
           };
+
           _this.setState({data:_data.data,
             showLoader:false,
             current:_data.data[rando],
-            index: rando
+            index: rando,
+            permalink: window.location
           });
           document.addEventListener('resetCard',_this.clickHandler,false);
         }
-      }
+      };
       request.open("GET", url, true);
       request.send();
     },
@@ -66,7 +75,7 @@ TODOS:
       return (
         <div>
           <p className="loader" data-show={this.state.showLoader}>Loading</p>
-          <Card klick={this.clickHandler} data={this.state.current} />
+          <Card klick={this.clickHandler} data={this.state.current} permalink={this.state.permalink} />
         </div>
       );
     }
@@ -79,6 +88,8 @@ TODOS:
          <h1 className="callout">{this.props.data.job}</h1>
          <img onClick={this.props.klick} className = "card-image" src={this.props.data.image} alt={this.props.data.job}/>
          <p><a href={this.props.data.url} target="_blank">View details</a> on the Metropolitan Museum of Art web site.</p>
+         <p><a href={this.props.permalink}>Permalink</a></p>
+         <Tweet job={this.props.data.job} />
         </div>
       );
     }
@@ -92,6 +103,17 @@ TODOS:
     render: function(){
       return (
         <button onClick={this.clickHandler}>Discover another "job"</button>
+      );
+    }
+  })
+
+  var Tweet = React.createClass({
+    url: function(){
+      return encodeURIComponent(window.location.href);
+    },
+    render: function(){
+      return (
+       <a href={'https://twitter.com/intent/tweet?text=A job for women: '+this.props.job+'&url='+this.url()}>Tweet this.</a>
       );
     }
   })
